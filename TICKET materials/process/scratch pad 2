@@ -1,0 +1,86 @@
+import cv2
+import numpy as np
+from skimage.color import rgb2lab, rgb2gray, lab2rgb
+from skimage.io import imread, imshow
+import matplotlib.pyplot as plt
+
+image_rgb = imread('barack.jpg') # has to be .jpg
+image_lab = rgb2lab(image_rgb / 255)
+
+average = image_lab.mean(axis=0).mean(axis=0) # avg color 
+print(image_lab) # (height, width, ?channels)
+
+# initialize image in lab space for superpixels 
+height = image_lab.shape[0]
+width = image_lab.shape[1]
+print("image shape")
+print(image_lab.shape)
+
+blank_image = np.zeros((height,width,3), np.uint8) # initialize superpixels 
+blank_image = blank_image + average # make whole image avg color
+
+# track each input pixel's assignment to a superpixel (center)
+# an array of (x,y) positions
+
+
+# print(image_lab[0][0]) # (height, width) for accessing pixel
+
+##
+==
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+
+%matplotlib inline
+
+# Read in image
+image = cv2.imread('barack.jpg')
+
+# Change color to RGB
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+# Reshaping image into a 2D array of pixels and 3 color values (RGB)
+pixel_vals = image.reshape((-1,3))
+
+# Convert 
+
+#plt.imshow(image)
+
+
+
+
+
+==
+# set temperature: twice the variance along the major principal component axis of the
+variance = image_lab.var(axis=2)
+print("variance shape:")
+print(variance.shape)
+print(variance)
+
+# sort pixels based on variance
+# an input pixel, calculate value
+# compare to critical T, if less group A, if more group B
+
+
+
+
+
+
+====
+# Python program to read image
+# as LAB color space
+
+# Importing cv2 module
+import cv2
+
+# Reads the image
+img = cv2.imread('g4g.png')
+
+# Converts to LAB color space
+img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+
+# Shows the image
+cv2.imshow('image', img)
+
+cv2.waitKey(0)		
+cv2.destroyAllWindows()
